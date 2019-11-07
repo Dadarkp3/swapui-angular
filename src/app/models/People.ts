@@ -11,4 +11,6 @@ export class People {
   name: string;
   skin_color: string;
   src: string;
+  link: any;
+  specie: any;
 }

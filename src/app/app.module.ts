@@ -10,12 +10,13 @@ import { HeaderComponent } from "./components/header/header.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { SearchBarComponent } from "./components/search-bar/search-bar.component";
 import { FormsModule } from "@angular/forms";
-import { PeopleService } from "./services/people/people.service";
-import { LoaderComponent } from './components/loader/loader.component';
-import { PeopleCardComponent } from './components/people-card/people-card.component';
-import { StarshipCardComponent } from './components/starship-card/starship-card.component';
-import { StarshipGridComponent } from './components/starship-grid/starship-grid.component';
-import { PeopleGridComponent } from './components/people-grid/people-grid.component';
+import { LoaderComponent } from "./components/loader/loader.component";
+import { PeopleCardComponent } from "./components/people-card/people-card.component";
+import { StarshipCardComponent } from "./components/starship-card/starship-card.component";
+import { StarshipGridComponent } from "./components/starship-grid/starship-grid.component";
+import { PeopleGridComponent } from "./components/people-grid/people-grid.component";
+import { ImageService } from "./services/image/image.service";
+import { SearchService } from "./services/search/search.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { PeopleGridComponent } from './components/people-grid/people-grid.compon
     FormsModule,
     HttpClientModule
   ],
-  providers: [PeopleService],
+  providers: [SearchService, ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

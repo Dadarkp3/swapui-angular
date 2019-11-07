@@ -1,9 +1,9 @@
-<div class="card">
+<div [ngStyle]="{ 'background-image': 'url(' + people.src + ')' }" class="card">
   <div class="info">
-    <h3>Nome da Pessoa</h3>
-    <p>dwqwd</p>
-    <p>qwefqwe</p>
-    <p>weqw</p>
+    <h3>{{ people.name }}</h3>
+    <p>{{ people.birth_year }}</p>
+    <p>{{ people.gender }}</p>
+    <p>{{ people.hair }}</p>
     <h4>Spaceships</h4>
     <p>nome dfff</p>
     <p>wewwrew</p>

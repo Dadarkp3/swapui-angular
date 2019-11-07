@@ -8,7 +8,7 @@
   border-radius: 10px;
   width: 85vw;
   height: 80vh;
-  padding: 2rem;
+  text-shadow: 5px 2px 3px black;
   @media (min-width: 600px) {
     height: 450px;
     max-width: 300px;
@@ -26,7 +26,11 @@
   display: flex;
   flex-flow: column;
   position: absolute;
-  bottom: 60px;
+  bottom: 0px;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0 0 9px 9px;
+  background: url("../../../assets/img/navbar.jpg");
   h3 {
     font-size: 32px;
     font-weight: bolder;

@@ -1,9 +1,9 @@
 <section>
   <h1>List of people in the universe</h1>
   <div class="container">
-    <app-people-card></app-people-card>
-    <app-people-card></app-people-card>
-    <app-people-card></app-people-card>
-    <app-people-card></app-people-card>
+    <app-people-card
+      *ngFor="let people of peoples"
+      [people]="people"
+    ></app-people-card>
   </div>
 </section>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
+import { People } from "src/app/models/People";
 
 @Component({
   selector: "app-people-grid",
@@ -6,6 +7,8 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./people-grid.component.scss"]
 })
 export class PeopleGridComponent implements OnInit {
+  @Input()
+  public peoples: Array<People>;
   constructor() {}
 
   ngOnInit() {}
