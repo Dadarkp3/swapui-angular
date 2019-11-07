@@ -1,0 +1,24 @@
+nav {
+  background: url("../../../assets/img/navbar.jpg");
+  display: flex;
+  width: 100vw;
+  padding: 1rem;
+  text-transform: capitalize;
+  opacity: 0.7;
+}
+
+.logo-container {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.logo {
+  width: 60px;
+  margin: 0 1rem;
+}

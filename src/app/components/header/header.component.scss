@@ -1,0 +1,52 @@
+.container {
+  background: url("../../../assets/img/barnner.jpg");
+  width: 100%;
+  height: 600px;
+  position: relative;
+  background-attachment: fixed;
+  background-position: 65%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media (min-width: 900px) {
+    background-position: center;
+  }
+}
+
+.people-info {
+  padding: 2rem;
+  max-width: 900px;
+  margin-right: 20px;
+  min-height: 100px;
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-flow: column;
+  height: -webkit-fill-available;
+  justify-content: center;
+  @media (min-width: 900px) {
+    padding: 4rem;
+  }
+}
+
+h2,
+.subtitle {
+  color: white;
+  text-shadow: 2px 2px 4px #000;
+}
+
+h2 {
+  font-size: 38px;
+  color: rgb(255, 255, 255);
+  margin: 1rem 0;
+  @media (min-width: 900px) {
+    font-size: 76px;
+  }
+}
+
+.subtitle {
+  font-size: 16px;
+  line-height: 20px;
+  @media (min-width: 900px) {
+    font-size: 22px;
+  }
+}
