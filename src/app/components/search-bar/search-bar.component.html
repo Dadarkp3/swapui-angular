@@ -1,3 +1,14 @@
 <section class="container">
-  <div class="input-container"></div>
+  <div class="input-container">
+    <fa-icon class="search" [icon]="icon"></fa-icon>
+    <input
+      id="peopleInput"
+      name="peopleInput"
+      (keyup.enter)="sendQuery()"
+      (input)="debounce$.next($event.target.value)"
+      placeholder="Type the name of the scam you are looking"
+      type="text"
+      [(ngModel)]="query"
+    />
+  </div>
 </section>

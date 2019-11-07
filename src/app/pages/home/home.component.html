@@ -1,2 +1,5 @@
 <app-header></app-header>
-<app-search-bar></app-search-bar>
+<app-search-bar (inputEmitter)="inputReceived($event)"></app-search-bar>
+<app-loader [isLoading]="isLoading"></app-loader>
+<app-people-grid></app-people-grid>
+<app-loader></app-loader>

@@ -1,0 +1,25 @@
+.card {
+  border-radius: 6px;
+  display: flex;
+  flex-flow: column;
+  background: #4e4343;
+  color: white;
+  img {
+    width: 85px;
+    height: 85px;
+    border: 2px solid #4e4343;
+    border-radius: 10px;
+  }
+}
+
+.card-info {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  .icon {
+    margin: 0 5px;
+  }
+  &--text {
+    display: flex;
+  }
+}

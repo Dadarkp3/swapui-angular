@@ -14,9 +14,6 @@
 
 .people-info {
   padding: 2rem;
-  max-width: 900px;
-  margin-right: 20px;
-  min-height: 100px;
   color: rgb(255, 255, 255);
   background: rgba(0, 0, 0, 0);
   display: flex;
@@ -39,8 +36,9 @@ h2 {
   color: rgb(255, 255, 255);
   margin: 1rem 0;
   @media (min-width: 900px) {
-    font-size: 76px;
+    font-size: 50px;
   }
+  width: fit-content;
 }
 
 .subtitle {
@@ -48,5 +46,44 @@ h2 {
   line-height: 20px;
   @media (min-width: 900px) {
     font-size: 22px;
+  }
+}
+
+.typewriter {
+  display: inline-block;
+  width: fit-content;
+}
+
+.typewriter-text {
+  display: inline-block;
+  overflow: hidden;
+  letter-spacing: 2px;
+  animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
+  white-space: nowrap;
+  font-size: 24px;
+  font-weight: 700;
+  border-right: 4px solid orange;
+  box-sizing: border-box;
+  @media (min-width: 350px) {
+    font-size: 30px;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
   }
 }

@@ -1,0 +1,34 @@
+.card {
+  background: url("https://www.sideshow.com/storage/product-images/903109/luke-skywalker_star-wars_feature.jpg");
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  border-radius: 10px;
+  width: 85vw;
+  height: 80vh;
+  padding: 2rem;
+  @media (min-width: 600px) {
+    height: 450px;
+    max-width: 300px;
+    background-position: top;
+    background-attachment: initial;
+    &:hover {
+      transform: scale(1.3);
+      z-index: 1050;
+    }
+  }
+}
+
+.info {
+  color: white;
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  bottom: 60px;
+  h3 {
+    font-size: 32px;
+    font-weight: bolder;
+  }
+}
