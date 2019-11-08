@@ -1,9 +1,10 @@
 #spinner {
-  display: flex;
-
-  margin: 2rem;
-
-  z-index: 1050;
+  position: relative;
+  z-index: 102;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-top: -40px;
 
   .loader {
     display: block;

@@ -15,6 +15,7 @@ import { PeopleCardComponent } from "./components/people-card/people-card.compon
 import { PeopleGridComponent } from "./components/people-grid/people-grid.component";
 import { ImageService } from "./services/image/image.service";
 import { SearchService } from "./services/search/search.service";
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SearchService } from "./services/search/search.service";
     SearchBarComponent,
     LoaderComponent,
     PeopleCardComponent,
-    PeopleGridComponent
+    PeopleGridComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
