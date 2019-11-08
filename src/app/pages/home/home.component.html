@@ -14,9 +14,9 @@
     <fa-icon class="pagination-text" [icon]="previous"></fa-icon>
   </button>
   <button
-    class="pagination-number"
-    *ngFor="let item of arrayOne(pagination?.totalPages); let i = index"
-    (click)="searchByPage(i + 1)"
+    *ngFor="let item of pagination.buttonsPagination; let i = index"
+    (click)="searchByPage(i)"
+    class="pagination-number {{ item.style }}"
   >
     {{ i + 1 }}
   </button>

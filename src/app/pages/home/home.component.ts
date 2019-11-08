@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   public next = faArrowRight;
   public pagination: Pagination;
   public inputValue = "https://swapi.co/api/people?page=";
+  public currentPage = 0;
 
   constructor(
     private searchService: SearchService,
@@ -66,7 +67,6 @@ export class HomeComponent implements OnInit {
         });
         this.isLoading = false;
         this.goTotop();
-        console.log(data);
       });
     } catch (error) {
       this.isLoading = false;
@@ -90,30 +90,36 @@ export class HomeComponent implements OnInit {
 
   private buildPagination(data) {
     this.pagination = data;
+    this.pagination.buttonsPagination = [];
     if (data.previous == null) {
-      this.pagination.currentPage = 1;
+      this.currentPage = 0;
     }
     this.pagination.totalPages =
       (data.count / 10) % 1 == 0
         ? data.count / 10
         : (data.count / 10) | (1.0 - 0);
     for (let index = 0; index < this.pagination.totalPages; index++) {
+      console.log(this.currentPage, index);
       this.pagination.buttonsPagination[index] = new PaginationButton();
-      this.pagination.buttonsPagination[index].isCurrent =
-        this.pagination.currentPage == index;
+      if (this.currentPage == index) {
+        this.pagination.buttonsPagination[index].isCurrent =
+          this.currentPage == index;
+        this.pagination.buttonsPagination[index].style = "active";
+      }
     }
+    console.log(this.pagination.buttonsPagination);
   }
 
   previousSearch() {
     if (this.pagination.previous) {
-      this.pagination.currentPage--;
+      this.currentPage--;
       this.search(this.pagination.previous);
     }
   }
 
   nextSearch() {
     if (this.pagination.next) {
-      this.pagination.currentPage++;
+      this.currentPage++;
       this.search(this.pagination.next);
     }
   }
@@ -129,7 +135,10 @@ export class HomeComponent implements OnInit {
   }
 
   searchByPage(page: number) {
-    this.pagination.currentPage = page;
-    this.search(this.inputValue + page);
+    console.log(page);
+    console.log(this.currentPage);
+    this.currentPage = page;
+    console.log(this.currentPage);
+    this.search(this.inputValue + (page + 1));
   }
 }

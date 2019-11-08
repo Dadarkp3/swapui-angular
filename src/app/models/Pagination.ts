@@ -9,7 +9,7 @@ export class Pagination {
   public buttonsPagination: PaginationButton[] = [];
 
   constructor() {
-    this.currentPage = 1;
+    this.currentPage = 0;
     this.buttonsPagination[0] = new PaginationButton();
     this.buttonsPagination[0].isCurrent = true;
   }
