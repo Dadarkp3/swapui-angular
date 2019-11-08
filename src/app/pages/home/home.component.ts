@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     this.search(this.inputValue + 1);
   }
 
-  search(url: string) {
+  async search(url: string) {
     this.isLoading = true;
     this.isError = false;
     this.peoples = [];
@@ -64,7 +64,6 @@ export class HomeComponent implements OnInit {
           Promise.all([this.searchImage(people), this.searchStarship(people)]);
         });
         this.isLoading = false;
-        this.goTotop();
       },
       (err: HttpErrorResponse) => {
         console.warn(err);
@@ -84,16 +83,9 @@ export class HomeComponent implements OnInit {
   }
 
   searchImage(people) {
-    this.imageService.searchImage(people.name).subscribe(
-      (data: any) => {
-        people.src = data.items[0].link;
-      },
-      (err: HttpErrorResponse) => {
-        console.warn(err);
-        this.isLoading = false;
-        this.isError = true;
-      }
-    );
+    this.imageService.searchImage(people.name).subscribe((data: any) => {
+      people.src = data.items[0].link;
+    });
   }
 
   private buildPagination(data) {
@@ -116,17 +108,19 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  previousSearch() {
+  async previousSearch() {
     if (this.pagination.previous) {
       this.currentPage--;
-      this.search(this.pagination.previous);
+      await this.search(this.pagination.previous);
+      this.goTotop();
     }
   }
 
-  nextSearch() {
+  async nextSearch() {
     if (this.pagination.next) {
       this.currentPage++;
-      this.search(this.pagination.next);
+      await this.search(this.pagination.next);
+      this.goTotop();
     }
   }
 
@@ -140,12 +134,10 @@ export class HomeComponent implements OnInit {
     return Array(n);
   }
 
-  searchByPage(page: number) {
-    console.log(page);
-    console.log(this.currentPage);
+  async searchByPage(page: number) {
     this.currentPage = page;
-    console.log(this.currentPage);
-    this.search(this.inputValue + (page + 1));
+    await this.search(this.inputValue + (page + 1));
+    this.goTotop();
   }
 
   isDisabled(value) {
