@@ -15,6 +15,7 @@ import { ViewportScroller } from "@angular/common";
 import { Router } from "@angular/router";
 import { Url } from "url";
 import { PaginationButton } from "src/app/models/PaginationButton";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
   selector: "app-home",
@@ -54,8 +55,8 @@ export class HomeComponent implements OnInit {
     this.isError = false;
     this.peoples = [];
 
-    try {
-      this.searchService.search(url).subscribe(data => {
+    this.searchService.search(url).subscribe(
+      data => {
         this.buildPagination(data);
         this.peoples = data.results;
         this.isLoading = false;
@@ -67,35 +68,35 @@ export class HomeComponent implements OnInit {
         });
         this.isLoading = false;
         this.goTotop();
-      });
-    } catch (error) {
-      this.isLoading = false;
-    }
+      },
+      (err: HttpErrorResponse) => {
+        console.warn(err);
+        this.isLoading = false;
+        this.isError = true;
+      }
+    );
   }
 
   searchStarship(people: People) {
     people.ship = [];
-    try {
-      people.starships.forEach(startship => {
-        this.searchService.search(startship).subscribe((ship: any) => {
-          people.ship.push(ship);
-        });
+    people.starships.forEach(startship => {
+      this.searchService.search(startship).subscribe((ship: any) => {
+        people.ship.push(ship);
       });
-    } catch (error) {
-      this.isLoading = false;
-      this.isError = true;
-    }
+    });
   }
 
   searchImage(people) {
-    try {
-      this.imageService.searchImage(people.name).subscribe((data: any) => {
+    this.imageService.searchImage(people.name).subscribe(
+      (data: any) => {
         people.src = data.items[0].link;
-      });
-    } catch (error) {
-      this.isLoading = false;
-      this.isError = true;
-    }
+      },
+      (err: HttpErrorResponse) => {
+        console.warn(err);
+        this.isLoading = false;
+        this.isError = true;
+      }
+    );
   }
 
   private buildPagination(data) {
