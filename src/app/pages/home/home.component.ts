@@ -152,4 +152,8 @@ export class HomeComponent implements OnInit {
     console.log(this.currentPage);
     this.search(this.inputValue + (page + 1));
   }
+
+  isDisabled(value) {
+    return value === null;
+  }
 }
