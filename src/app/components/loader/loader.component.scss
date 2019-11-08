@@ -1,6 +1,10 @@
 #spinner {
   z-index: 102;
   margin: 2rem;
+  position: absolute;
+  left: 48vw;
+  /* margin: 0 auto; */
+  z-index: 1050;
 
   .loader {
     display: block;

@@ -9,6 +9,10 @@ import { People } from "src/app/models/People";
 export class PeopleGridComponent implements OnInit {
   @Input()
   public peoples: Array<People>;
+
+  @Input()
+  public isLoading: boolean;
+
   constructor() {}
 
   ngOnInit() {}
