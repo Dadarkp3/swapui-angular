@@ -61,7 +61,10 @@ export class HomeComponent implements OnInit {
         this.peoples = data.results;
         this.isLoading = false;
         this.peoples.forEach(people => {
-          Promise.all([this.searchImage(people), this.searchStarship(people)]);
+          Promise.all([
+            // this.searchImage(people),
+            this.searchStarship(people)
+          ]);
         });
         this.isLoading = false;
       },
@@ -76,16 +79,30 @@ export class HomeComponent implements OnInit {
   searchStarship(people: People) {
     people.ship = [];
     people.starships.forEach(startship => {
-      this.searchService.search(startship).subscribe((ship: any) => {
-        people.ship.push(ship);
-      });
+      this.searchService.search(startship).subscribe(
+        (ship: any) => {
+          people.ship.push(ship);
+        },
+        (err: HttpErrorResponse) => {
+          console.warn(err);
+          this.isLoading = false;
+          this.isError = true;
+        }
+      );
     });
   }
 
   searchImage(people) {
-    this.imageService.searchImage(people.name).subscribe((data: any) => {
-      people.src = data.items[0].link;
-    });
+    this.imageService.searchImage(people.name).subscribe(
+      (data: any) => {
+        people.src = data.items[0].link;
+      },
+      (err: HttpErrorResponse) => {
+        console.warn(err);
+        this.isLoading = false;
+        this.isError = true;
+      }
+    );
   }
 
   private buildPagination(data) {
