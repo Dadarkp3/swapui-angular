@@ -1,10 +1,24 @@
 <app-header></app-header>
-<app-search-bar (inputEmitter)="inputReceived($event)"></app-search-bar>
-<app-people-grid [isLoading]="isLoading" [peoples]="peoples"></app-people-grid>
+<app-search-bar
+  id="navbar"
+  (inputEmitter)="inputReceived($event)"
+></app-search-bar>
+<app-people-grid
+  id="people-grid"
+  [isLoading]="isLoading"
+  [peoples]="peoples"
+></app-people-grid>
 <app-loader></app-loader>
 <section class="pagination">
   <button (click)="previousSearch()" class="pagination-button">
     <fa-icon class="pagination-text" [icon]="previous"></fa-icon>
+  </button>
+  <button
+    class="pagination-number"
+    *ngFor="let item of arrayOne(pagination?.totalPages); let i = index"
+    (click)="searchByPage(i + 1)"
+  >
+    {{ i + 1 }}
   </button>
   <button (click)="nextSearch()" class="pagination-button">
     <fa-icon class="pagination-text" [icon]="next"></fa-icon>
