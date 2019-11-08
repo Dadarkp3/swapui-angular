@@ -61,10 +61,7 @@ export class HomeComponent implements OnInit {
         this.peoples = data.results;
         this.isLoading = false;
         this.peoples.forEach(people => {
-          Promise.all([
-            // this.searchImage(people),
-            this.searchStarship(people)
-          ]);
+          Promise.all([this.searchImage(people), this.searchStarship(people)]);
         });
         this.isLoading = false;
         this.goTotop();
@@ -110,7 +107,6 @@ export class HomeComponent implements OnInit {
         ? data.count / 10
         : (data.count / 10) | (1.0 - 0);
     for (let index = 0; index < this.pagination.totalPages; index++) {
-      console.log(this.currentPage, index);
       this.pagination.buttonsPagination[index] = new PaginationButton();
       if (this.currentPage == index) {
         this.pagination.buttonsPagination[index].isCurrent =
@@ -118,7 +114,6 @@ export class HomeComponent implements OnInit {
         this.pagination.buttonsPagination[index].style = "active";
       }
     }
-    console.log(this.pagination.buttonsPagination);
   }
 
   previousSearch() {
