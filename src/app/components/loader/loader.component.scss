@@ -1,9 +1,8 @@
 #spinner {
-  z-index: 102;
+  display: flex;
+
   margin: 2rem;
-  position: absolute;
-  left: 48vw;
-  /* margin: 0 auto; */
+
   z-index: 1050;
 
   .loader {

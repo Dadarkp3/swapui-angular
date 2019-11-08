@@ -75,17 +75,27 @@ export class HomeComponent implements OnInit {
 
   searchStarship(people: People) {
     people.ship = [];
-    people.starships.forEach(startship => {
-      this.searchService.search(startship).subscribe((ship: any) => {
-        people.ship.push(ship);
+    try {
+      people.starships.forEach(startship => {
+        this.searchService.search(startship).subscribe((ship: any) => {
+          people.ship.push(ship);
+        });
       });
-    });
+    } catch (error) {
+      this.isLoading = false;
+      this.isError = true;
+    }
   }
 
   searchImage(people) {
-    this.imageService.searchImage(people.name).subscribe((data: any) => {
-      people.src = data.items[0].link;
-    });
+    try {
+      this.imageService.searchImage(people.name).subscribe((data: any) => {
+        people.src = data.items[0].link;
+      });
+    } catch (error) {
+      this.isLoading = false;
+      this.isError = true;
+    }
   }
 
   private buildPagination(data) {
