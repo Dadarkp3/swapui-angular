@@ -16,4 +16,8 @@ export class PeopleGridComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  isEmpty() {
+    return this.peoples.length === 0;
+  }
 }

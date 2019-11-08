@@ -1,13 +1,18 @@
-<section>
+<section id="people-grid">
   <h1>List of people in the universe</h1>
   <app-loader [isLoading]="isLoading"></app-loader>
   <div
     [ngStyle]="!isLoading ? { display: 'grid' } : { display: 'none' }"
     class="container"
   >
-    <app-people-card
-      *ngFor="let people of peoples"
-      [people]="people"
-    ></app-people-card>
+    <ng-container *ngIf="!isEmpty()">
+      <app-people-card
+        *ngFor="let people of peoples"
+        [people]="people"
+      ></app-people-card>
+    </ng-container>
+  </div>
+  <div *ngIf="isEmpty() && !isLoading">
+    <h1>You just looked for someone that isn't born yet!</h1>
   </div>
 </section>

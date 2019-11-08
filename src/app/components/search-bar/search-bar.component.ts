@@ -26,6 +26,7 @@ export class SearchBarComponent implements OnInit {
   ngOnInit() {}
 
   sendQuery() {
-    this.inputEmitter.emit(this.query);
+    const URL = `https://swapi.co/api/people/?search=${this.query}`;
+    this.inputEmitter.emit(URL);
   }
 }

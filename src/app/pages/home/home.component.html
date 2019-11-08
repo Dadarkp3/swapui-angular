@@ -2,3 +2,11 @@
 <app-search-bar (inputEmitter)="inputReceived($event)"></app-search-bar>
 <app-people-grid [isLoading]="isLoading" [peoples]="peoples"></app-people-grid>
 <app-loader></app-loader>
+<section class="pagination">
+  <button (click)="previousSearch()" class="pagination-button">
+    <fa-icon class="pagination-text" [icon]="previous"></fa-icon>
+  </button>
+  <button (click)="nextSearch()" class="pagination-button">
+    <fa-icon class="pagination-text" [icon]="next"></fa-icon>
+  </button>
+</section>
