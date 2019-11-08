@@ -1,11 +1,23 @@
-<div [ngStyle]="{ 'background-image': 'url(' + people.src + ')' }" class="card">
+<div
+  [ngStyle]="{
+    'background-image': 'url(' + isImageFound(people) + ')'
+  }"
+  class="card"
+>
   <div class="info">
     <h3>{{ people.name }}</h3>
     <p>{{ people.birth_year }}</p>
     <p>{{ people.gender }}</p>
     <p>{{ people.hair }}</p>
-    <h4>Spaceships</h4>
-    <p>nome dfff</p>
-    <p>wewwrew</p>
+    <div class="starship">
+      <fa-icon class="rocket" [icon]="icon"></fa-icon>
+      <h4>Spaceships:</h4>
+    </div>
+    <ng-container *ngIf="people.ship.length > 0">
+      <div *ngFor="let starship of people.ship">
+        {{ starship.name }}
+      </div>
+    </ng-container>
+    <div *ngIf="people.ship.length == 0">No Spaceships found!</div>
   </div>
 </div>

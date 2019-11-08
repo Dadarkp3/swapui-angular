@@ -1,5 +1,6 @@
 import { HomeWorld } from "./HomeWorld";
 import { Specie } from "./Specie";
+import { Starship } from "./Starship";
 
 export class People {
   birth_year: string;
@@ -13,4 +14,10 @@ export class People {
   src: string;
   link: any;
   specie: any;
+  ship: Starship[] = [];
+  starships: [] = [];
+
+  constructor() {
+    this.ship = new Array<Starship>();
+  }
 }
