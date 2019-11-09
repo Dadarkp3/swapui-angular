@@ -61,10 +61,7 @@ export class HomeComponent implements OnInit {
         this.peoples = data.results;
         this.isLoading = false;
         this.peoples.forEach(people => {
-          Promise.all([
-            // this.searchImage(people),
-            this.searchStarship(people)
-          ]);
+          Promise.all([this.searchImage(people), this.searchStarship(people)]);
         });
         this.isLoading = false;
       },
