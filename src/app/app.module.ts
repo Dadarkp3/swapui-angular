@@ -15,7 +15,7 @@ import { PeopleCardComponent } from "./components/people-card/people-card.compon
 import { PeopleGridComponent } from "./components/people-grid/people-grid.component";
 import { ImageService } from "./services/image/image.service";
 import { SearchService } from "./services/search/search.service";
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from "./components/footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule
   ],
   providers: [SearchService, ImageService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [FontAwesomeModule]
 })
 export class AppModule {}
