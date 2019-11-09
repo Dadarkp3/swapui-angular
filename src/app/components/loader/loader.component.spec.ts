@@ -28,4 +28,11 @@ describe("LoaderComponent", () => {
     fixture.detectChanges();
     expect(loader.style.display).toBe("flex");
   });
+
+  it("should not show loader on screen", () => {
+    component.isLoading = false;
+    let loader = fixture.debugElement.query(By.css("span")).nativeElement;
+    fixture.detectChanges();
+    expect(loader.style.display).toBe("none");
+  });
 });
