@@ -39,7 +39,12 @@
 
 .starship {
   display: flex;
-  margin: 15px 0 0 0;
+  margin: 2rem 0 1rem;
+  border-bottom: 1px dashed orange;
+  line-height: 1.7;
+  h4 {
+    font-size: 24px;
+  }
   .rocket {
     margin: 0 5px 0 0;
   }
@@ -92,6 +97,48 @@
 /* Style the back side */
 .flip-card-back {
   background-color: black;
-  color: orange;
+  color: white;
+  text-shadow: 0.3px 0.3px 1px white;
   transform: rotateY(180deg);
+  overflow-y: auto;
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin: 0 0 0 1rem;
+  }
+}
+
+.card-header {
+  width: 100%;
+  height: 100px;
+  border-radius: 9px 9px 0 0;
+  background: url("../../../assets/img/navbar.jpg");
+}
+
+.card-inner-element {
+  margin: -60px 0 0 0;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.header-image {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  .title {
+    font-size: 32px;
+  }
+}
+
+.personal-list {
+  display: flex;
+  justify-content: center;
+  p {
+    margin: 0 10px;
+  }
+}
+.techincal {
+  margin: 2px 0;
 }

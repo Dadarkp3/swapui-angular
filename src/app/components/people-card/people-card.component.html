@@ -35,20 +35,43 @@
         <p>{{ people.birth_year }}</p>
         <p>{{ people.gender }}</p>
         <p>{{ people.hair_color }}</p>
-        <div class="starship">
-          <fa-icon class="rocket" [icon]="icon"></fa-icon>
-          <h4>Spaceships:</h4>
-        </div>
-        <ng-container *ngIf="people.ship.length > 0">
-          <div *ngFor="let starship of people.ship">
-            {{ starship.name }}
-          </div>
-        </ng-container>
-        <div *ngIf="people.ship.length == 0">No Spaceships found!</div>
       </div>
     </div>
     <div class="flip-card-back  card">
-      <p>more info goes here</p>
+      <div class="card-header"></div>
+      <div class="card-inner-element">
+        <div>
+          <div class="header-image">
+            <img
+              class="profile-image"
+              src="{{ isImageFound(people) }}"
+              alt=""
+            />
+            <h3 class="title">{{ people.name }}</h3>
+          </div>
+          <div class="personal-list">
+            <p>{{ people.birth_year }}</p>
+            |
+            <p>{{ people.gender }}</p>
+            |
+            <p>{{ people.hair_color }}</p>
+          </div>
+        </div>
+        <div class="starship">
+          <fa-icon class="rocket" [icon]="icon"></fa-icon>
+          <h4>Starships:</h4>
+        </div>
+        <ng-container *ngIf="people.ship.length > 0">
+          <div class="techincal" *ngFor="let starship of people.ship">
+            <div>
+              Name:
+              {{ starship.name }}
+            </div>
+            Model: {{ starship.model }}
+          </div>
+        </ng-container>
+        <div *ngIf="people.ship.length == 0">No Starships found</div>
+      </div>
     </div>
   </div>
 </div>
