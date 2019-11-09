@@ -10,7 +10,7 @@ import { faRocket } from "@fortawesome/free-solid-svg-icons";
 export class PeopleCardComponent implements OnInit {
   public noImage = "../../../assets/img/navbar.jpg";
   public icon = faRocket;
-  public link = "";
+
   @Input()
   public people: People;
 
@@ -19,7 +19,9 @@ export class PeopleCardComponent implements OnInit {
   ngOnInit() {}
 
   isImageFound(people) {
-    return people.src == "undefined" || people.src == undefined
+    return people == undefined ||
+      people.src == "undefined" ||
+      people.src == undefined
       ? "../../../assets/img/no-image.jpg"
       : people.src;
   }

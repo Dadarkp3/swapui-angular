@@ -1,16 +1,15 @@
-// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+// import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-// import { PeopleGridComponent } from './people-grid.component';
+// import { PeopleGridComponent } from "./people-grid.component";
 
-// describe('PeopleGridComponent', () => {
+// describe("PeopleGridComponent", () => {
 //   let component: PeopleGridComponent;
 //   let fixture: ComponentFixture<PeopleGridComponent>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ PeopleGridComponent ]
-//     })
-//     .compileComponents();
+//       declarations: [PeopleGridComponent]
+//     }).compileComponents();
 //   }));
 
 //   beforeEach(() => {
@@ -19,7 +18,8 @@
 //     fixture.detectChanges();
 //   });
 
-//   it('should create', () => {
+//   it("should create", () => {
+//     component.isLoading = true;
 //     expect(component).toBeTruthy();
 //   });
 // });
