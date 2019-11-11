@@ -1,19 +1,9 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  ViewChild,
-  ElementRef
-} from "@angular/core";
+import { Component, OnInit, Output, ElementRef } from "@angular/core";
 import { People } from "src/app/models/People";
 import { ImageService } from "src/app/services/image/image.service";
 import { SearchService } from "src/app/services/search/search.service";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Pagination } from "src/app/models/Pagination";
-import { ViewportScroller } from "@angular/common";
-import { Router } from "@angular/router";
-import { Url } from "url";
 import { PaginationButton } from "src/app/models/PaginationButton";
 import { HttpErrorResponse } from "@angular/common/http";
 
